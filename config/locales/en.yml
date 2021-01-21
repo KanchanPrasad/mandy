@@ -1,0 +1,35 @@
+en:
+  i18n:
+    language:
+      name: "English"
+      en: "English"
+      de: "German"
+  general:
+    add: "Add"
+    close: "Close"
+    edit: "Edit"
+    back: "Back"
+    delete: "Delete"
+    filter: "Filter/ Search"
+    create: "Create"
+    save: "Save"
+    search: "Search"
+    ok: "Ok"
+  layouts:
+    application:
+      title: "speakerinnen.org"
+      home: "Home"
+      menu: "Menu"
+      list: "Speakerinnen*"
+      contact: "Contact"
+      impressum: "Legal Details"
+      search: "Search"
+      faq: "FAQ"
+      about: "About"
+      press: "Press"
+      logged_as: "Logged in as"
+      my_profile: "My profile"
+      account: "Edit account settings"
+      logout: "Log out"
+      signup: "Register as a speaker"
+      login: "Log in"

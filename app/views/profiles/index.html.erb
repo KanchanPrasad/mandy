@@ -1,0 +1,112 @@
+<div class="container mb-5">
+
+  <!-- search scope -->
+  <% if params[:search] %>
+    <div class="row">
+      <div class="col-12 py-5">
+        <span class="h3 serif">
+          <%= t(:success, scope: 'search').html_safe + t(:result, scope: 'search', count: @profiles_count).html_safe %><b><%= params[:search] if params[:search] %></b>
+        </span>
+        <% filter_element_class = @profiles.count <= 0 ? "filter-themes-next-line" : "float-right"%>
+        <span class=<%=filter_element_class%>>
+          <%= link_to("<i class='fa fa-filter pr-2'></i>".html_safe + "Filter by themes", profiles_path, class: '')  %>
+        </span>
+      </div>
+    </div>
+    <% if @profiles.count > 0 %>
+      <div class="row-3">
+        <div class="col-12">
+          <%= render partial: 'shared/search_filter',
+              locals: {
+                profiles: @profiles,
+                aggs_languages: @aggs_languages,
+                aggs_countries: @aggs_countries,
+                aggs_cities: @aggs_cities
+              }
+            %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <!-- only show the category filter when not in search scope -->
+  <% unless params[:search] %>
+    <div class="collapse show" id="collapseFilter">
+
+      <div class="row py-5">
+        <div class="col-md-12 text-center">
+          <h1><%= t(:title_topic_search, scope: 'profiles.index') %></h1>
+        </div>
+      </div>
+      <%= render partial: 'shared/category_filter' %>
+      <a id="speakers_anchor"></a>
+
+    <hr class="mt-5">
+    </div> <!-- tag filter -->
+    <a href="#top"><%= t(:up_to_filter, scope: 'profiles.index') %> <i class='fa fa-filter pr-2'></i> </a>
+  <% end %>
+
+  <!-- Found speaker when in search or filter function -->
+  <div class="row m-5">
+    <div class="col-md-12 text-center pt-3">
+      <% if params[:category_id] %>
+        <h1><%= @category.name %></h1>
+        <h3><%= t(:profiles_in_category, scope: 'profiles.index', count: @profiles_count).html_safe %> </h3>
+      <% elsif params[:tag_filter] %>
+        <h1>
+          <%= t(:all_tagged_speakerinnen, scope: 'profiles.index', count: @profiles_count).html_safe + t(:tag_filter, scope: 'profiles.index', count: @tags.count).html_safe %>
+        </h1>
+
+        <h3><%# raw @tags.map { |tag_name| ActsAsTaggableOn::Tag.where(name: tag_name).first }.join(', ') %><h3>
+      <% end %>
+
+    </div>
+  </div>
+
+  <!-- Speaker section -->
+  <%= paginate @profiles %>
+
+  <% @profiles.in_groups_of(4).each do |group| %>
+    <div class="row">
+      <% group.each do |profile| %>
+        <%= render partial: 'profiles/profile', object: profile %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= paginate @profiles %>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+
+  // elasticsearch search filter
+  $('.expander_countries').click(function(){
+    if ( $('.rest_facet_countries').css('display') == 'none' ) {
+      $('.rest_facet_countries').css('display','block');
+      $('.expander_countries').html('<%= t(:show_less, scope: 'profiles.index')%>');
+    } else {
+      $('.rest_facet_countries').css('display','none');
+      $('.expander_countries').html('<%= t(:show_more, scope: 'profiles.index')%>');
+    }});
+
+  $('.expander_cities').click(function(){
+    if ( $('.rest_facet_cities').css('display') == 'none' ) {
+      $('.rest_facet_cities').css('display','block');
+      $('.expander_cities').html('<%= t(:show_less, scope: 'profiles.index')%>');
+    } else {
+      $('.rest_facet_cities').css('display','none');
+      $('.expander_cities').html('<%= t(:show_more, scope: 'profiles.index')%>');
+    }});
+
+  $('.expander_languages').click(function(){
+    if ( $('.rest_facet_languages').css('display') == 'none' ) {
+      $('.rest_facet_languages').css('display','block');
+      $('.expander_languages').html('<%= t(:show_less, scope: 'profiles.index')%>');
+    } else {
+      $('.rest_facet_languages').css('display','none');
+      $('.expander_languages').html('<%= t(:show_more, scope: 'profiles.index')%>');
+    }});
+
+    $('.filter-themes-next-line').css('display', 'block').css('margin-top', '1em');
+
+</script>

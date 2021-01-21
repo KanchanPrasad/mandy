@@ -1,0 +1,35 @@
+de:
+  i18n:
+    language:
+      name: "Deutsch"
+      en: "Englisch"
+      de: "Deutsch"
+  general:
+    add: "Hinzufügen"
+    close: "Schließen"
+    edit: "Bearbeiten"
+    back: "Zurück"
+    delete: "Löschen"
+    filter: "Filtern/ Suchen"
+    create: "Erstellen"
+    save: "Speichern"
+    search: "Suche"
+    ok: "Ok"
+  layouts:
+    application:
+      title: "Speakerinnen.org"
+      home: "Home"
+      menu: "Menü"
+      list: "Speakerinnen"
+      contact: "Kontakt"
+      impressum: "Impressum"
+      search: "Suchen"
+      faq: "FAQ"
+      about: "About"
+      press: "Presse"
+      logged_as: "Eingeloggt als"
+      my_profile: "Mein Profil"
+      account: "Benutzerkonto bearbeiten"
+      logout: "Ausloggen"
+      signup: "Registrieren"
+      login: "Einloggen"

@@ -1,0 +1,25 @@
+de:
+  search:
+    any: "Alle"
+    no_profile: "Zu diesem Thema haben wir leider keine Speakerin gefunden."
+    profiles_topics: "Es gibt <b>%{profiles_count}</b> Speakerinnen zu dem Thema:"
+    profiles: "%{link}"
+    all_profiles: "In allen Profilen blättern >>"
+    did_you_mean: "Meinst du vielleicht %{suggestions_fullname}?"
+    or_did_you_mean: "Oder %{suggestions_topic}?"
+    empty_search: "Du hast das Suchfeld leider leer gelassen. Versuch es doch noch einmal :)"
+    filter: "Hier kannst du die Suchergebnisse filtern:"
+    success: "Wir haben"
+    result: {
+      one: " <b>eine</b> Speakerin gefunden zu Deiner Suche: ",
+      other: " <b>%{count}</b> Speakerinnen gefunden zu Deiner Suche: "
+    }
+    more_options: "<b>Keine passende Speakerin gefunden?</b><br> Vielleicht helfen Dir diese Links weiter:"
+    search_categories_html: "Du kannst auch in anderen <a href='%{root_path}/#categories_anchor'>Kategorien</a> und <a href='#tag_cloud_anchor'>Themen</a> stöbern."
+    adapt_search: "Suche anpassen >>"
+    all_countries: "Alle Länder"
+    all_cities: "Alle Städte"
+    all_languages: "Alle Sprachen"
+    countries_agg: "Länder:"
+    cities_agg: "Städte:"
+    languages_agg: "Sprachen:"
